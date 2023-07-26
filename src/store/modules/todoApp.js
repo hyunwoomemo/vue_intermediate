@@ -24,14 +24,14 @@ const getters = {
 
 const mutations = {
   addOneItem(state, todoItem) {
-    console.log('recived')
     let obj = { completed: false, item: todoItem};
     localStorage.setItem(todoItem, JSON.stringify(obj));
     state.todoItems.push(obj);
   },
   removeOneItem(state, payload) {
+    console.log(payload)
     localStorage.removeItem(payload.todoItem.item);
-    state.todoItems.splice(payload.todoItem.index, 1)
+    state.todoItems.splice(payload.index, 1)
   },
   toggleItem(state, payload) {
     payload.todoItem.completed = !payload.todoItem.completed;
